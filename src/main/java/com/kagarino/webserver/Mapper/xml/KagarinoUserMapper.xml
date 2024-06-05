@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kagarino.mapper.KagarinoUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kagarino.entity.KagarinoUser">
+        <id column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="user_password" property="userPassword" />
+        <result column="user_mail" property="userMail" />
+        <result column="user_gmt_logon" property="userGmtLogon" />
+        <result column="user_login_count" property="userLoginCount" />
+        <result column="user_article_count" property="userArticleCount" />
+        <result column="user_brief" property="userBrief" />
+        <result column="user_portrait" property="userPortrait" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, user_name, user_password, user_mail, user_gmt_logon, user_login_count, user_article_count, user_brief, user_portrait, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

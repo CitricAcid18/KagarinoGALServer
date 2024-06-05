@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kagarino.mapper.KagarinoArticleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.kagarino.entity.KagarinoArticle">
+        <id column="article_id" property="articleId" />
+        <result column="article_title" property="articleTitle" />
+        <result column="article_scan_count" property="articleScanCount" />
+        <result column="article_like_count" property="articleLikeCount" />
+        <result column="article_tag" property="articleTag" />
+        <result column="article_comment_count" property="articleCommentCount" />
+        <result column="article_author_id" property="articleAuthorId" />
+        <result column="article_author_name" property="articleAuthorName" />
+        <result column="article_content" property="articleContent" />
+        <result column="article_gmt_release" property="articleGmtRelease" />
+        <result column="article_portrait" property="articlePortrait" />
+        <result column="article_illustration" property="articleIllustration" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        article_id, article_title, article_scan_count, article_like_count, article_tag, article_comment_count, article_author_id, article_author_name, article_content, article_gmt_release, article_portrait, article_illustration, gmt_create, gmt_modified
+    </sql>
+
+</mapper>
