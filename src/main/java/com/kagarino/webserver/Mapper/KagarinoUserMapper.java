@@ -3,6 +3,8 @@ package com.kagarino.webserver.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kagarino.webserver.Entity.KagarinoUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * <p>
@@ -14,7 +16,8 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface KagarinoUserMapper extends BaseMapper<KagarinoUser> {
-    public Boolean isUsernameExist(String username);
+    @Select("select user_id from kagarino_user where user_name = #{username}")
+    public Integer isUsernameExist(@Param("username") String username);
 
-    public Boolean isMailExist(String mail);
+    public Integer isMailExist(String mail);
 }

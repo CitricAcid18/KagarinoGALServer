@@ -14,5 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 public interface KagarinoUserService extends IService<KagarinoUser> {
+    public Boolean isUsernameExist(String username);
 
+    public Boolean isMailExist(String mail);
 }

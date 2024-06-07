@@ -3,6 +3,7 @@ package com.kagarino.webserver.Controller;
 import com.kagarino.webserver.Entity.Result;
 import com.kagarino.webserver.Mapper.KagarinoUserMapper;
 import com.kagarino.webserver.Service.KagarinoUserService;
+import com.kagarino.webserver.Until.ResultEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +31,12 @@ public class WelcomeController {
      */
     @PostMapping("/user")
     public Result<String> createUser(String username,String password,String mail){
+        Result<String> res=new Result<>();
         //验证该用户名是否唯一
-//        kagarinoUserMapper.
+        if(kagarinoUserService.isUsernameExist(username)){
+            res.setData("用户名已存在");
+            return res.error(ResultEnum.CONFLICT.code,ResultEnum.CONFLICT.msg);
+        }
         return null;
     }
 
