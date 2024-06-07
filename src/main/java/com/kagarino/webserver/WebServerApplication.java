@@ -4,7 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan
+@MapperScan("com.kagarino.webserver.Mapper")
 @SpringBootApplication
 public class WebServerApplication {
 
