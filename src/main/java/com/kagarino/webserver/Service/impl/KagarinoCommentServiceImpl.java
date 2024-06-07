@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
  * @author zwj
  * @since 2024-06-05
  */
-@Mapper
 @Service
 public class KagarinoCommentServiceImpl extends ServiceImpl<KagarinoCommentMapper, KagarinoComment> implements KagarinoCommentService {
 
