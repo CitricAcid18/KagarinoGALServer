@@ -1,5 +1,6 @@
 package com.kagarino.webserver.Controller;
 
+import com.kagarino.webserver.Entity.Result;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,10 +17,10 @@ public class WelcomeController {
      * @Date: 2024/6/5 21:56
      * @Description: TODO 注册
      * @Params: 用户名username 用户密码password 用户邮箱mail
-     * @Return: 成功与否boolean
+     * @Return: 成功与否及提示
      */
-    public void createUser(){
-
+    public Result<String> createUser(){
+        return null;
     }
 
 }

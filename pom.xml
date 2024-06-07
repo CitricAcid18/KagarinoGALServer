@@ -5,8 +5,8 @@
     <groupId>com.kagarino</groupId>
     <artifactId>webserver</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>WebServer</name>
-    <description>WebServer</description>
+    <name>webserver</name>
+    <description>webserver</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -53,17 +53,17 @@
             <version>3.3.2</version>
         </dependency>
 <!--        代码自动生成器依赖-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.0.5</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-generator</artifactId>-->
+<!--            <version>3.0.5</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <version>2.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.velocity</groupId>-->
+<!--            <artifactId>velocity-engine-core</artifactId>-->
+<!--            <version>2.2</version>-->
+<!--        </dependency>-->
 <!--        redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

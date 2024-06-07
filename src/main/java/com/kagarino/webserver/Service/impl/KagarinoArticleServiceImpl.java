@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kagarino.webserver.Entity.KagarinoArticle;
 import com.kagarino.webserver.Mapper.KagarinoArticleMapper;
 import com.kagarino.webserver.Service.KagarinoArticleService;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
  * @author zwj
  * @since 2024-06-05
  */
+@Mapper
 @Service
 public class KagarinoArticleServiceImpl extends ServiceImpl<KagarinoArticleMapper, KagarinoArticle> implements KagarinoArticleService {
 
