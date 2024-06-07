@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kagarino.webserver.Entity.KagarinoComment;
 import com.kagarino.webserver.Mapper.KagarinoCommentMapper;
 import com.kagarino.webserver.Service.KagarinoCommentService;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
 
 /**

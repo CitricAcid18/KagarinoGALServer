@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kagarino.webserver.Entity.KagarinoUser;
 import com.kagarino.webserver.Mapper.KagarinoUserMapper;
 import com.kagarino.webserver.Service.KagarinoUserService;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
 
 /**
