@@ -2,7 +2,6 @@ package com.kagarino.webserver.Service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kagarino.webserver.Entity.KagarinoUser;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -14,7 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 public interface KagarinoUserService extends IService<KagarinoUser> {
-    public Boolean isUsernameExist(String username);
+    Boolean isUsernameExist(String username);
 
-    public Boolean isMailExist(String mail);
+    Boolean isMailExist(String mail);
 }

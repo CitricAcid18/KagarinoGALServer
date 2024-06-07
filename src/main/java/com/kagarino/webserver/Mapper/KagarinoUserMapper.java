@@ -17,7 +17,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface KagarinoUserMapper extends BaseMapper<KagarinoUser> {
     @Select("select user_id from kagarino_user where user_name = #{username}")
-    public Integer isUsernameExist(@Param("username") String username);
+    Integer isUsernameExist(@Param("username") String username);
 
-    public Integer isMailExist(String mail);
+    Integer isMailExist(String mail);
 }

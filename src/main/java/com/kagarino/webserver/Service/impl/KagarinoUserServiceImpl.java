@@ -30,7 +30,7 @@ public class KagarinoUserServiceImpl extends ServiceImpl<KagarinoUserMapper, Kag
      * @Params: 用户名
      * @Return: true已存在/false不存在
      */
-    //@Transactional(isolation = Isolation.REPEATABLE_READ)
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public Boolean isUsernameExist(String username){
         return kagarinoUserMapper.isUsernameExist(username) > 0;
     }

@@ -1,7 +1,6 @@
 package com.kagarino.webserver.Controller;
 
 import com.kagarino.webserver.Entity.Result;
-import com.kagarino.webserver.Mapper.KagarinoUserMapper;
 import com.kagarino.webserver.Service.KagarinoUserService;
 import com.kagarino.webserver.Until.ResultEnum;
 import org.springframework.beans.factory.annotation.Autowired;
