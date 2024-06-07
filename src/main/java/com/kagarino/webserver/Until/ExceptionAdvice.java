@@ -28,9 +28,6 @@ public class ExceptionAdvice {
 
     /**
      * 权限校验异常，无权访问文件夹时触发
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(AccessDeniedException.class)
     public Result<String> handleAccessDeniedException(AccessDeniedException e,
@@ -43,9 +40,6 @@ public class ExceptionAdvice {
 
     /**
      * 请求方式不支持，请求路径正确但是请求方式不对时触发
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public Result<String> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException e,
@@ -58,9 +52,6 @@ public class ExceptionAdvice {
 
     /**
      * 参数验证失败异常，使用@Valid注解验证参数不正确时触发
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Result<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e,
@@ -74,9 +65,6 @@ public class ExceptionAdvice {
 
     /**
      * 拦截错误SQL异常，sql语句或参数类型、个数不匹配时触发
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(BadSqlGrammarException.class)
     public Result<String> handleBadSqlGrammarException(BadSqlGrammarException e,
@@ -89,9 +77,6 @@ public class ExceptionAdvice {
 
     /**
      * 可以拦截表示违反数据库的完整性约束导致的异常。
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(DataIntegrityViolationException.class)
     public Result<String> handleDataIntegrityViolationException(DataIntegrityViolationException e,
@@ -105,9 +90,6 @@ public class ExceptionAdvice {
 
     /**
      * 可以拦截违反数据库的非完整性约束导致的异常，可能也会拦截一些也包括 SQL 语句错误、连接问题、权限问题等各种数据库异常。
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(UncategorizedSQLException.class)
     public Result<String> handleUncategorizedSqlException(UncategorizedSQLException e,
@@ -120,9 +102,6 @@ public class ExceptionAdvice {
 
     /**
      * 拦截未知的运行时异常
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(RuntimeException.class)
     public Result<String> handleRuntimeException(RuntimeException e,
@@ -135,9 +114,6 @@ public class ExceptionAdvice {
 
     /**
      * 业务自定义异常
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(ServiceException.class)
     public Result<String> handleServiceException(ServiceException e,
@@ -151,9 +127,6 @@ public class ExceptionAdvice {
 
     /**
      * 全局异常
-     * @param e
-     * @param request
-     * @return
      */
     @ExceptionHandler(Exception.class)
     public Result<String> handleException(Exception e,

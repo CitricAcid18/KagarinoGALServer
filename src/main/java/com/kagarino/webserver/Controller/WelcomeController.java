@@ -18,5 +18,8 @@ public class WelcomeController {
      * @Params: 用户名username 用户密码password 用户邮箱mail
      * @Return: 成功与否boolean
      */
+    public void createUser(){
+
+    }
 
 }
