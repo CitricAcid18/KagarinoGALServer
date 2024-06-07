@@ -2,6 +2,7 @@ package com.kagarino.webserver.Mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kagarino.webserver.Entity.KagarinoComment;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.kagarino.webserver.Entity.KagarinoComment;
  * @author zwj
  * @since 2024-06-05
  */
+@Mapper
 public interface KagarinoCommentMapper extends BaseMapper<KagarinoComment> {
 
 }
