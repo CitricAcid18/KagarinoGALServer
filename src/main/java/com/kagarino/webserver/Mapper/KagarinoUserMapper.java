@@ -14,5 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface KagarinoUserMapper extends BaseMapper<KagarinoUser> {
+    public Boolean isUsernameExist(String username);
 
+    public Boolean isMailExist(String mail);
 }
