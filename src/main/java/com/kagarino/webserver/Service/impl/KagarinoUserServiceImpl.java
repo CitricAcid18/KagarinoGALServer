@@ -41,7 +41,8 @@ public class KagarinoUserServiceImpl extends ServiceImpl<KagarinoUserMapper, Kag
      * @Params: 用户邮箱
      * @Return: true唯一/false不唯一
      */
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public Boolean isMailExist(String mail) {
-        return false;
+        return kagarinoUserMapper.isMailExist(mail) > 0;
     }
 }
