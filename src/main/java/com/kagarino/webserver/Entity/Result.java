@@ -1,6 +1,7 @@
 package com.kagarino.webserver.Entity;
 
 import com.kagarino.webserver.Until.ResultEnum;
+import lombok.Data;
 
 /**
  * @Author: zwj
@@ -8,6 +9,7 @@ import com.kagarino.webserver.Until.ResultEnum;
  * @Version: v1.0.0
  * @Description: TODO 统一返回结果类
  **/
+@Data
 public class Result<T> {
 
     //返回信息码
@@ -33,12 +35,10 @@ public class Result<T> {
     }
 
     //成功，返回成功码、信息和数据
-    public Result<T> success(T data){
-        Result<T> result=new Result();
-        result.setCode(ResultEnum.SUCCESS.code);
-        result.setMsg(ResultEnum.SUCCESS.msg);
-        result.setData(data);
-        return result;
+    public Result<T> success(String code,String msg){
+        this.setCode(code);
+        this.setMsg(msg);
+        return this;
     }
 
     //失败，返回自己定义的信息码和信息
@@ -51,10 +51,9 @@ public class Result<T> {
 
     //失败，返回controller层传过来信息码和信息
     public Result<T> error(String code,String msg){
-        Result<T> result=new Result<>();
-        result.setCode(code);
-        result.setMsg(msg);
-        return result;
+        this.setCode(code);
+        this.setMsg(msg);
+        return this;
     }
 
 
