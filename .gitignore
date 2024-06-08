@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 !**/src/main/**/resources/application-dev.yml
 *.sql
-
+*.iml
 ### STS ###
 .apt_generated
 .classpath
