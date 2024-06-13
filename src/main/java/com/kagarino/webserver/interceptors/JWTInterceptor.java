@@ -5,7 +5,7 @@ import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kagarino.webserver.Until.JWTUtils;
+import com.kagarino.webserver.until.JWTUtils;
 import com.kagarino.webserver.annotation.Login;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
