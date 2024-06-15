@@ -22,6 +22,9 @@ public interface KagarinoUserMapper extends BaseMapper<KagarinoUser> {
     @Select("select count(user_id) from kagarino_user where user_mail = #{mail};")
     Integer isMailExist(@Param("mail") String mail);
 
+    @Select("select count(user_name) from kagarino_user where user_id = #{id};")
+    Integer isUserIdExist(@Param("id") Long id);
+
     @Insert("insert into kagarino_user (user_name, user_password, user_mail,user_gmt_logon)\n"+
             "values (#{username},#{password},#{mail},#{gmt});")
     Integer createUser(@Param("username") String username,
@@ -40,4 +43,9 @@ public interface KagarinoUserMapper extends BaseMapper<KagarinoUser> {
             "SET user_password = #{password}\n" +
             "WHERE user_id = #{id};")
     Integer updataUserMsgById(@Param("id") Long id,@Param("password") String password);
+
+    @Update("UPDATE kagarino_user\n" +
+            "SET user_name = #{username}\n" +
+            "WHERE user_id = #{id};")
+    Integer updataUserNameById(@Param("id") Long id,@Param("username") String username);
 }

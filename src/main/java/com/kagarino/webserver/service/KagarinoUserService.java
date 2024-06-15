@@ -19,4 +19,6 @@ public interface KagarinoUserService extends IService<KagarinoUser> {
     Result<String> login(String username,String password);
     Result<String> sendResetPasswordMail(String mail);
     Result<String> resetUserPassword(String username,String mail,String password,String code);
+    Result<String> changeUsername(String id,String username);
+    Result<String> changeBrief(String id,String brief);
 }

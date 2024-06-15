@@ -3,11 +3,14 @@ package com.kagarino.webserver.controller;
 
 import com.kagarino.webserver.entity.Result;
 import com.kagarino.webserver.service.KagarinoUserService;
+import com.kagarino.webserver.until.JWTUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
@@ -82,6 +85,30 @@ public class KagarinoUserController {
     @GetMapping("/welcome/reset")
     public Result<String> resetMail(String mail){
         return kagarinoUserService.sendResetPasswordMail(mail);
+    }
+    /**
+     * @Auther: zwj
+     * @Date: 2024/6/15 10:06
+     * @Description: TODO 修改用户名
+     * @Params: 用户名
+     * @Return: 成功与否及提示
+     */
+    @PutMapping("/home/username")
+    public Result<String> changeName(HttpServletRequest request, String username){
+        String id=JWTUtils.getPayload(request,"id");
+        return kagarinoUserService.changeUsername(id,username);
+    }
+    /**
+     * @Auther: zwj
+     * @Date: 2024/6/15 11:08
+     * @Description: TODO 修改简介
+     * @Params: 简介
+     * @Return: 成功与否及提示
+     */
+    @PutMapping("/home/brief")
+    public Result<String> changeBrief(HttpServletRequest request, String brief){
+        String id=JWTUtils.getPayload(request,"id");
+        return kagarinoUserService.changeBrief(id,brief);
     }
 }
 

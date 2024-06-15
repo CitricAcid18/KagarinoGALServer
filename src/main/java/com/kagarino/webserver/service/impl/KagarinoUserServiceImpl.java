@@ -6,10 +6,12 @@ import com.kagarino.webserver.entity.Result;
 import com.kagarino.webserver.mapper.KagarinoUserMapper;
 import com.kagarino.webserver.service.KagarinoUserService;
 import com.kagarino.webserver.until.*;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -134,6 +136,7 @@ public class KagarinoUserServiceImpl extends ServiceImpl<KagarinoUserMapper, Kag
         //注册用户
         Date currentDate =new Date();
         if(kagarinoUserMapper.createUser(username,password,mail,currentDate)!=1){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             res.setData("插入用户失败");
             return res.success(ResultEnum.BAD_SQL.code,ResultEnum.BAD_SQL.msg);
         }
@@ -248,10 +251,74 @@ public class KagarinoUserServiceImpl extends ServiceImpl<KagarinoUserMapper, Kag
         password = salt+KeyUtils.encrypt(password,salt);
         //更新用户密码
         if(kagarinoUserMapper.updataUserMsgById(user.getUserId(),password)!=1){
-            res.setData("用户修改密码失败");
-            return res.success(ResultEnum.BAD_SQL.code,ResultEnum.BAD_SQL.msg);
+            throw new RuntimeException("用户修改密码失败");
         }
         res.setData("用户修改密码成功");
         return res.success(ResultEnum.SUCCESS.code,ResultEnum.SUCCESS.msg);
     }
+    /**
+     * @Auther: zwj
+     * @Date: 2024/6/15 10:06
+     * @Description: TODO 修改用户名
+     * @Params: 用户名
+     * @Return: 成功与否及提示
+     */
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public Result<String> changeUsername(String id,String username){
+        Result<String> res=new Result<>();
+        //查询用户对象
+        Long tempId=Long.parseLong(id);
+        KagarinoUser user=kagarinoUserMapper.selectById(tempId);
+        //验证用户是否存在
+        if(user==null){
+            res.setData("用户不存在，请重新登录");
+            return res.error(ResultEnum.BAD_REQUEST.code,ResultEnum.BAD_REQUEST.msg);
+        }
+        //验证用户名是否与之前相同
+        if(user.getUserName().equals(username)){
+            res.setData("用户名相同，无需更改");
+            return res.error(ResultEnum.BAD_REQUEST.code,ResultEnum.BAD_REQUEST.msg);
+        }
+        //验证修改后用户名是否重复
+        if(kagarinoUserMapper.isUsernameExist(username)>0){
+            res.setData("用户名已存在，请换一个用户名");
+            return res.error(ResultEnum.BAD_REQUEST.code,ResultEnum.BAD_REQUEST.msg);
+        }
+        //改用户名
+        if(kagarinoUserMapper.updataUserNameById(tempId,username)!=1){
+            throw new RuntimeException("用户修改用户名失败");
+        }
+        res.setData("用户修改用户名成功");
+        return res.success(ResultEnum.SUCCESS.code,ResultEnum.SUCCESS.msg);
+    }
+    /**
+     * @Auther: zwj
+     * @Date: 2024/6/15 11:08
+     * @Description: TODO 修改简介
+     * @Params: 简介
+     * @Return: 成功与否及提示
+     */
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public Result<String> changeBrief(String id,String brief){
+        Result<String> res=new Result<>();
+        Long tempId=Long.parseLong(id);
+        //验证用户是否存在
+        if(kagarinoUserMapper.isUserIdExist(tempId)<1){
+            res.setData("用户不存在，请重新登录");
+            return res.error(ResultEnum.BAD_REQUEST.code,ResultEnum.BAD_REQUEST.msg);
+        }
+        //改简介
+        if(kagarinoUserMapper.updataUserNameById(tempId,brief)!=1){
+            throw new RuntimeException("用户修改简介失败");
+        }
+        res.setData("用户修改简介成功");
+        return res.success(ResultEnum.SUCCESS.code,ResultEnum.SUCCESS.msg);
+    }
+    /**
+     * @Auther: zwj
+     * @Date: 2024/6/15 11:16
+     * @Description: TODO 用户修改头像
+     * @Params: 用户图片
+     * @Return: 成功与否及提示
+     */
 }
